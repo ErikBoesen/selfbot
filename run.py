@@ -26,10 +26,10 @@ async def on_message(message):
 
     await bot.wait_until_ready()
     await bot.wait_until_login()
-    print('There has been a message in channel %s' % message.channel.name)
+    print('Recieved message in #%s from %s.' % (message.channel.name, message.author.nick))
 
 
-async def game_and_avatar(bot):
+async def spam(bot):
     await bot.wait_until_ready()
 
     while not bot.is_closed:
@@ -39,8 +39,8 @@ async def game_and_avatar(bot):
 
 
 def get_random_string():
-    return random.choice(['!levels', '%%rank', 'test', '%%tba team %s' % random.randint(0, 6200)])
+    return random.choice(['!levels', '%rank', '%%tba team %s' % random.randint(0, 6200)])
 
 
-bot.loop.create_task(game_and_avatar(bot))
+bot.loop.create_task(spam(bot))
 bot.run(config['main']['token'], bot=False)
