@@ -39,7 +39,7 @@ async def game_and_avatar(bot):
 
 
 def get_random_string():
-    return random.choice(['!levels', '%%rank', 'test', 'This is a test to make sure I\'m using send_message right', '%%tba team %s' % random.randint(0, 6200)])
+    return random.choice(['!levels', '%%rank', 'test', '%%tba team %s' % random.randint(0, 6200)])
 
 
 bot.loop.create_task(game_and_avatar(bot))
