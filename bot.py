@@ -26,10 +26,7 @@ async def on_message(message):
 
     await bot.wait_until_ready()
     await bot.wait_until_login()
-    try:
-        print('Recieved message in #%s from %s.' % (message.channel.name, message.author.nick))
-    except AttributeError:
-        print('Recieved message in #%s from %s.' % (message.channel.name, message.author.name))
+    #print('Recieved message in #%s from %s.' % (message.channel.name, message.author.nick))
 
 
 async def spam(bot):
@@ -37,13 +34,9 @@ async def spam(bot):
 
     while not bot.is_closed:
         print('Sending message in #spam180...')
-        msg = await bot.send_message(bot.get_channel('176515260516139009'), get_random_string())
+        await bot.delete_message(await bot.send_message(bot.get_channel('176515260516139009'), '.'))
         await asyncio.sleep(59)
-        await bot.delete_message(msg)
 
-
-def get_random_string():
-    return random.choice(['!levels', '!rank', '%%tba team %s' % random.randint(0, 6200)])
 
 
 bot.loop.create_task(spam(bot))
