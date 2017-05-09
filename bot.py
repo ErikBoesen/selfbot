@@ -28,16 +28,11 @@ async def on_message(message):
     await bot.wait_until_login()
     #print('Recieved message in #%s from %s.' % (message.channel.name, message.author.nick))
 
+"""
+async def name_rotate(bot):
+    pass
 
-async def spam(bot):
-    await bot.wait_until_ready()
+bot.loop.create_task(name_rotate(bot))
+"""
 
-    while not bot.is_closed:
-        print('Sending message in #spam180...')
-        await bot.delete_message(await bot.send_message(bot.get_channel('176515260516139009'), '.'))
-        await asyncio.sleep(59)
-
-
-
-bot.loop.create_task(spam(bot))
 bot.run(config['main']['token'], bot=False)
