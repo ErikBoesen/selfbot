@@ -1,0 +1,5 @@
+token: <insert token here>
+custom_game: yes
+games:
+    - Currently running selfbot
+    - github.com/ErikBoesen
